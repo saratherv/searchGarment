@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  db: 
+    build: ./database/
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+    ports:
+      - "27017:27017"
+    volumes:
+      - $PWD/mongo-data:/data/db
+      - $PWD/mongo-app:/var/www/html
+    restart: always
+  mongo-seed:
+    build: ./mongo-seed/
+  backend:
+    build: ./backend/
