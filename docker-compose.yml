@@ -16,3 +16,6 @@ services:
     build: ./mongo-seed/
   backend:
     build: ./backend/
+    ports:
+      - "8080:8080"
+    restart: always
