@@ -2,6 +2,7 @@ version: '3.2'
 services:
   db: 
     build: ./database/
+    hostname: test_mongodb
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=1234
