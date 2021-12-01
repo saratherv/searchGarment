@@ -6,14 +6,17 @@ function Search() {
 
   const [searchShow, setSearchShow] = useState(false);
   const [data, setData] = useState("")
+  const [offset, setOffset] = useState(0)
+  const [searchValue, setSearchValue] = useState("")
 
   const handleChange = e => {
     // setSearchField(e.target.value);
-    if(e.target.value===""){
+    if(e.target.value==="" || e.target.value.length<3){
       setSearchShow(false);
     }
     else {
-    fetch("http://0.0.0.0:8080/search/" + e.target.value, {method: 'GET'})
+      setSearchValue(e.target.value)
+    fetch("http://0.0.0.0:8080/search?searchValue=" + e.target.value + "&offset=" + offset, {method: 'GET'})
     .then(response => response.json())
     .then(result => {
       if(result.success===true){
@@ -35,6 +38,19 @@ function Search() {
 	  }
   }
 
+  function load_more() {
+    setOffset(offset+ 50)
+    fetch("http://0.0.0.0:8080/search?searchValue=" + searchValue + "&offset=" + offset, {method: 'GET'})
+    .then(response => response.json())
+    .then(result => {
+      if(result.success===true){
+        setData(result.data)
+        setSearchShow(true);
+      }
+    })
+    .catch(error => console.log('error', error));
+  }
+
   return (
     <section className="garamond">
 			<div className="navy georgia ma0 grow">
@@ -49,6 +65,8 @@ function Search() {
 				/>
 			</div>
 			{searchList()}
+
+      {searchShow === true ? <button onClick={ load_more }> load more </button> : null}
 		</section>
   );
 }

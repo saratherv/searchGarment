@@ -23,9 +23,9 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-@app.get("/search/{searchValue}")
-async def read_items(searchValue: str):
-    data = search_data(searchValue)
+@app.get("/search")
+async def read_items(searchValue: str, offset:Optional[int] = 0):
+    data = search_data(searchValue, offset)
     if data:
         return {"code":200, "success" : True, "data" : json.loads(dumps(data))}
     else:
