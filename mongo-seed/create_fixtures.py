@@ -1,4 +1,3 @@
-from typing import Collection
 from pymongo import MongoClient, errors
 import json_lines
 # global variables for MongoDB host (default port is 27017)

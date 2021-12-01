@@ -6,5 +6,6 @@ RUN pip3 install -r requirements.txt
 EXPOSE 8080
 
 COPY main.py main.py
+COPY db_querries.py db_querries.py
 
 CMD ["python3", "main.py"]
