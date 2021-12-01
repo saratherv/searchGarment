@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Card({person}) {
+function Card({garment}) {
 	return(
 		<div className="tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
-			<img className="br-100 h3 w3 dib" alt={person.name} src={process.env.PUBLIC_URL + person.imgPath} />
+			<img className="br-100 h3 w3 dib" alt={garment.product_title} src={garment.image_urls[0]} />
 			<div>
-				<h2>{person.name}</h2>
-				<p>{person.email}</p>
+				<h2>{garment.product_title}</h2>
+				<p>{garment.product_description}</p>
 			</div>
 		</div>
 	);

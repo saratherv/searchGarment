@@ -24,7 +24,7 @@ def search_data(param):
     if client:
         db = client.garments
         collection = db.get_collection("garmentData")
-        data = collection.find({"product_title" : { "$regex" : f"{param}" }})
+        data = collection.find({"product_title" : { "$regex" : f"{param}" }}).limit(10)
         return data
     else:
         return None

@@ -4,14 +4,28 @@ from fastapi import FastAPI
 from db_querries import search_data
 from bson.json_util import dumps
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
 
 
-@app.get("/{param}")
-async def read_items(param: str):
-    data = search_data(param)
+origins = [
+    "*"
+]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+@app.get("/search/{searchValue}")
+async def read_items(searchValue: str):
+    data = search_data(searchValue)
     if data:
         return {"code":200, "success" : True, "data" : json.loads(dumps(data))}
     else:
