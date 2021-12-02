@@ -30,7 +30,7 @@ This project is build with dockers and can be installed using minimal commands.
    ```
 4. Test Command
     ```sh
-    sudo docker-compose exec backend pytest .
+    sudo docker-compose exec backend pytest .  (Note: Run this command in separate terminal)
     ```
     
 ## Usage
