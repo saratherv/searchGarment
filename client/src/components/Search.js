@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Scroll from './Scroll';
 import SearchList from './SearchList';
 
@@ -9,10 +9,16 @@ function Search() {
   const [offset, setOffset] = useState(0)
   const [searchValue, setSearchValue] = useState("")
 
+
+  useEffect(()=> {
+}, [data]);
+
   const handleChange = e => {
     // setSearchField(e.target.value);
     if(e.target.value==="" || e.target.value.length<3){
       setSearchShow(false);
+      setData("")
+      setOffset(0)
     }
     else {
       setSearchValue(e.target.value)
@@ -40,11 +46,11 @@ function Search() {
 
   function load_more() {
     setOffset(offset+ 50)
-    fetch("http://0.0.0.0:8080/search?searchValue=" + searchValue + "&offset=" + offset, {method: 'GET'})
+    fetch("http://0.0.0.0:8080/search?searchValue=" + searchValue + "&offset=" + (offset+ 50), {method: 'GET'})
     .then(response => response.json())
     .then(result => {
       if(result.success===true){
-        setData(result.data)
+        setData(data.concat(result.data))
         setSearchShow(true);
       }
     })
@@ -66,7 +72,7 @@ function Search() {
 			</div>
 			{searchList()}
 
-      {searchShow === true ? <button onClick={ load_more }> load more </button> : null}
+      {searchShow === true ? <button className="bg-lightest-blue" onClick={ load_more }> load more </button> : null}
 		</section>
   );
 }

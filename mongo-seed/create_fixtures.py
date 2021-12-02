@@ -18,7 +18,7 @@ try:
     print ("server version:", client.server_info()["version"])
 
     db = client.garments
-    collection = db.garmentData
+    collection = db.garmentDataNew
     with open('garment_items.jl', 'rb') as f:
         for item in json_lines.reader(f):
             collection.insert_one(item)
