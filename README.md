@@ -5,3 +5,38 @@
 * [MongoDB](https://www.mongodb.com/)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [React JS](https://reactjs.org/)
+
+## Getting started
+
+This project is build with dockers and can be installed using minimal commands.
+
+### Prerequisites
+* [docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/saratherv/searchGarment.git
+   ```
+2. Change directory
+    ```sh
+    cd searchGarment
+    ```
+3. Run command 
+   ```sh
+   sudo docker-compose up --build
+   ```
+4. Test Command
+    ```sh
+    sudo docker-compose exec backend pytest .
+    ```
+    
+## Usage
+
+- Visit http://0.0.0.0:8080/docs to see swagger.
+- To access frontend, please check ip address in the docker terminal.
+    
+
+
