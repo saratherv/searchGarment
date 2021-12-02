@@ -39,7 +39,7 @@ This project is build with dockers and can be installed using minimal commands.
 - To access frontend, please check ip address in the docker terminal.
 
 
-### Overview of the project
+## Overview of the project
 Projects has multiple services running and each app has its own Dockerfile, Details about the apps is as follows-
 - database, This app sets up mongodb locally.
 - mongo-seed, this loads data from .jl file into mongodb collection.
