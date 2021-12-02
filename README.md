@@ -37,6 +37,14 @@ This project is build with dockers and can be installed using minimal commands.
 
 - Visit http://0.0.0.0:8080/docs to see swagger.
 - To access frontend, please check ip address in the docker terminal.
+
+
+### Overview of the project
+Projects has multiple services running and each app has its own Dockerfile, Details about the apps is as follows-
+- database, This app sets up mongodb locally.
+- mongo-seed, this loads data from .jl file into mongodb collection.
+- backend, this is FastAPI server, where we fetch data for the searched query.
+- client, this React JS frontend which is user interface.
     
 
 
