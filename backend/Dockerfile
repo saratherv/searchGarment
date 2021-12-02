@@ -7,5 +7,6 @@ EXPOSE 8080
 
 COPY main.py main.py
 COPY db_querries.py db_querries.py
+COPY test_main.py test_main.py
 
 CMD ["python3", "main.py"]

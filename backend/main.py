@@ -25,6 +25,9 @@ app.add_middleware(
 
 @app.get("/search")
 async def read_items(searchValue: str, offset:Optional[int] = 0):
+    if len(searchValue) < 3:
+        return {"code":500, "success" : False, "message" : "send atleast 3 characters in search value"}
+
     data = search_data(searchValue, offset)
     if data:
         return {"code":200, "success" : True, "data" : json.loads(dumps(data))}
