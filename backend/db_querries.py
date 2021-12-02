@@ -23,7 +23,7 @@ def search_data(param, offset):
     client = connect_to_db()
     if client:
         db = client.garments
-        collection = db.get_collection("garmentDataNew")
+        collection = db.get_collection("garmentDataFinal")
         data = collection.find({"product_title" : { "$regex" : f"{param}", "$options" : "i"}}).skip(offset).limit(offset + 50)
         return data
     else:

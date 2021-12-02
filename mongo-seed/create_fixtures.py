@@ -18,10 +18,10 @@ try:
     print ("server version:", client.server_info()["version"])
 
     db = client.garments
-    collection = db.garmentDataNew
+    collection = db.garmentDataFinal
     with open('garment_items.jl', 'rb') as f:
         for item in json_lines.reader(f):
-            collection.insert_one(item)
+            collection.update_one({"product_id" : item["product_id"]}, {'$set':item}, upsert=True)
     
 
 except errors.ServerSelectionTimeoutError as err:
