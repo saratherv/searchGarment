@@ -35,8 +35,8 @@ This project is build with dockers and can be installed using minimal commands.
     
 ## Usage
 
-- To access backend click, [backend](https://dry-escarpment-67178.herokuapp.com/docs)
-- To access frontend click, [client](https://blooming-castle-26206.herokuapp.com/)
+- To access backend click, [click here](https://dry-escarpment-67178.herokuapp.com/docs)
+- To access frontend click, [click here](https://blooming-castle-26206.herokuapp.com/)
 
 
 ## Overview of the project
